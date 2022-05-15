@@ -36,9 +36,11 @@ function Board({squares, onClick}) {
 }
 
 function Game() {
+  //Usestate for history
   const [history, setHistory] = useLocalStorageState('tic-tac-toe:history', [
     Array(9).fill(null),
   ])
+  //usestate for current step
   const [currentStep, setCurrentStep] = useLocalStorageState(
     'tic-tac-toe:step',
     0,
@@ -54,8 +56,8 @@ function Game() {
       return
     }
 
-    const newHistory = history.slice(0, currentStep + 1)
-    const squares = [...currentSquares]
+    const newHistory = history.slice(0, currentStep + 1) //between 0 to currentStep+1
+    const squares = [...currentSquares] //copy of currentSquares
 
     squares[square] = nextValue
     setHistory([...newHistory, squares])

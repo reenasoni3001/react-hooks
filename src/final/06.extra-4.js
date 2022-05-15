@@ -21,7 +21,8 @@ class ErrorBoundary extends React.Component {
       return <this.props.FallbackComponent error={error} />
     }
 
-    return this.props.children
+    const {children} = this.props
+    return children
   }
 }
 
